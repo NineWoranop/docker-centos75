@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  httpd:
+    build: httpd/.
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./httpd/mount/etc_httpd_conf:/etc/httpd/conf
+      - ./httpd/mount/etc_httpd_htdocs:/etc/httpd/htdocs
+      - ./httpd/mount/etc_httpd_www:/etc/httpd/www

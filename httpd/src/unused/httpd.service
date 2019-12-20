@@ -1,0 +1,14 @@
+[Unit]
+Description=The Apache HTTP Server
+
+[Service]
+Type=forking
+ExecStart=/etc/httpd/bin/apachectl -k start
+ExecReload=/etc/httpd/bin/apachectl -k graceful
+ExecStop=/etc/httpd/bin/apachectl -k graceful-stop
+PIDFile=/etc/httpd/logs/httpd.pid
+KillSignal=SIGCONT
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
